@@ -10,7 +10,20 @@
 # OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.  #
 #=============================================================================#
 
+#region Settings
+
+#hides dwg
 $hideDWG = $false
+
+#endregion
+
+
+if (-not $IAmRunningInJobProcessor){
+    Import-Module powerJobs
+    OpenVaultConnection -server "localhost" -Vault "PDMC-Sample" -User "Administrator" -password ""
+    $file = Get-VaultFile -Properties @{"Name" = "01-0289.idw"}
+}
+
 $workingDirectory = "C:\Temp\$($file._Name)"
 $localDWGfileLocation = "$workingDirectory\$($file._Name).dwg"
 $vaultDWGfileLocation = $file._EntityPath +"/"+ (split-path -Leaf $localDWGfileLocation)
