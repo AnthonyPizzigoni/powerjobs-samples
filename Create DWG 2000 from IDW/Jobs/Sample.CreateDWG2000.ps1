@@ -10,6 +10,8 @@
 # OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.  #
 #=============================================================================#
 
+# JobEntityType = FILE
+
 #region Settings
 
 #hides dwg
